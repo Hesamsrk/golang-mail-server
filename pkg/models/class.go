@@ -1,9 +1,7 @@
 package models
 
-import "gorm.io/gorm"
-
 type Class struct {
-	gorm.Model
+	Model
 	Field   string
 	Teacher string
 }

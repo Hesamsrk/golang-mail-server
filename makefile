@@ -9,10 +9,14 @@ dev:
 dev-nodemon:
 	nodemon --exec (go run main.go --port ${PORT})
 
-db:
+db-run:
 	docker run --name golang-email-server \
 	-e POSTGRES_PASSWORD=password \
 	-e POSTGRES_DB=staging \
 	-e POSTGRES_USER=pg \
 	-p 9099:5432 \
 	-d postgres
+
+
+db-restart:
+	docker restart golang-email-server 

@@ -25,10 +25,10 @@ func (h withDBHandler) Login(ctx echo.Context) error {
 	var found models.User
 	h.DB.Model(&user).Where("username = ?", user.Username).First(&found)
 
-	if user.Username != found.Username ||  !utils.CheckPasswordHash(user.Password,found.Password)  {
+	if user.Username != found.Username || !utils.CheckPasswordHash(user.Password, found.Password) {
 		return echo.ErrUnauthorized
 	}
-	
+
 	// Set custom claims
 	claims := &auth.JwtCustomClaims{
 		user.Username,
@@ -83,5 +83,13 @@ func (h withDBHandler) Signup(ctx echo.Context) error {
 
 	h.DB.Create(&updated)
 
-	return ctx.JSON(http.StatusOK, user)
+	if updated.ID == 0 {
+		return ctx.JSON(http.StatusInternalServerError, echo.Map{
+			"massage": "No user created",
+		})
+	}
+
+	return ctx.JSON(http.StatusOK, echo.Map{
+		"ID": updated.ID,
+	})
 }
