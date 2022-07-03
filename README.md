@@ -10,7 +10,7 @@ This project is a golang server implemented using [Echo](https://echo.labstack.c
 
 - To make running CLI commands easier, I have used `makefile`. So if you don't have `makefile` installed on your system, please go to `./makefile` and run these commands manually by copy pasting.
 - I also used docker for running `Postgres` DBMS. So you also need docker installed on your system.
-- Paying attention to last points, run:
+- Paying attention to the previous points, run these commands:
 
 ```shell
 
@@ -39,7 +39,7 @@ make dev
 
 ## API
 
-You can access API documentation by accessing http://localhost:9090/docs after running the program on that specific port. You can also run the APIs on [Insomnia](https://insomnia.rest/), using `Run in insomnia` button, if you have it  already installed on your machine.
+You can access API documentation by going to http://localhost:9090/docs after running the program on that specific port. You can also run the APIs on [Insomnia](https://insomnia.rest/), using `Run in insomnia` button in the UI, if you have it already installed on your machine.
 
 ## Schemas
 
