@@ -79,3 +79,6 @@ type Class struct {
 	Teacher string
 }
 ```
+> ## Bonus features
+> 1. Using docker for running database. ✅
+> 2. Using `go routines` and `syng.waitGroup` for sending mails concurrently. ✅
